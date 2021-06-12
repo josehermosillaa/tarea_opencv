@@ -31,7 +31,9 @@ while True:
 
     # Draw a rectangle around the faces
     for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+        center_coordinates = x + w // 2, y + h // 2
+        radius = w // 2 # or can be h / 2 or can be anything based on your requirements
+        cv2.circle(frame, center_coordinates, radius, (0, 255, 0), 2)
 
     if anterior != len(faces):
         anterior = len(faces)
